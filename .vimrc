@@ -9,6 +9,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,7 +42,7 @@ noremap <space> za
 let g:SimpylFold_docstring_preview=1
 
 " Pep 8 indentation"
-au BufNewFile,BufRead *.py 
+au BufNewFile, BufRead *.py
     \ set tabstop=4
     \   softtabstop=4
     \   shiftwidth=4
@@ -49,8 +51,23 @@ au BufNewFile,BufRead *.py
     \   autoindent
     \   fileformat=unix
 
+" Flag Unnecessary Whitespace "
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 " Full Stack "
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile, BufRead *.js, *.html, *.css
     \ set tabstop=2
     \   softtabstop=2
     \   shiftwidth=2
+
+" Set encoding "
+set encoding=utf-8
+
+" Hide .pyc files "
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" Line numbering
+" set nu
+
+" NERD Tree shortcut "
+map <C-n> :NERDTreeToggle<CR>
