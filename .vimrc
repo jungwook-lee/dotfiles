@@ -40,17 +40,17 @@ noremap <space> za
 let g:SimpylFold_docstring_preview=1
 
 " Pep 8 indentation"
-au BufNewFile,BufRead *.py
+au BufNewFile,BufRead *.py 
     \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+    \   softtabstop=4
+    \   shiftwidth=4
+    \   textwidth=79
+    \   expandtab
+    \   autoindent
+    \   fileformat=unix
 
 " Full Stack "
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+    \   softtabstop=2
+    \   shiftwidth=2
