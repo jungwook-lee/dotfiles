@@ -42,23 +42,15 @@ noremap <space> za
 let g:SimpylFold_docstring_preview=1
 
 " Pep 8 indentation"
-au BufNewFile, BufRead *.py
-    \ set tabstop=4
-    \   softtabstop=4
-    \   shiftwidth=4
-    \   textwidth=79
-    \   expandtab
-    \   autoindent
-    \   fileformat=unix
+autocmd BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
 " Flag Unnecessary Whitespace "
-au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+highlight BadWhitespace ctermbg=red guibg=red
 
 " Full Stack "
-au BufNewFile, BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \   softtabstop=2
-    \   shiftwidth=2
+autocmd BufRead,BufNewFile *.htm,*.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " Set encoding "
 set encoding=utf-8
